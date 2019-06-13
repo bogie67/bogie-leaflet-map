@@ -579,10 +579,10 @@ Element which defines a maker  (<a href="http://leafletjs.com/reference.html#mar
 				 * @attribute draggable
 				 * @type bool
 				 */
-				draggable: {
-					type: Boolean,
-					value: false
-				},
+				// draggable: {
+				// 	type: Boolean,
+				// 	value: false
+				// },
 
 				/**
 				 * The `no-keyboard` attribute disables whether the marker can be tabbed to with a keyboard and clicked by pressing enter.
@@ -601,10 +601,10 @@ Element which defines a maker  (<a href="http://leafletjs.com/reference.html#mar
 				 * @attribute title
 				 * @type string
 				 */
-				title: {
-					type: String,
-					value: ''
-				},
+				// title: {
+				// 	type: String,
+				// 	value: ''
+				// },
 
 				/**
 				 * The `alt` attribute sets the text for the alt attribute of the icon image (useful for accessibility).
@@ -684,9 +684,9 @@ Element which defines a maker  (<a href="http://leafletjs.com/reference.html#mar
 
 				var feature = L.marker([this.latitude, this.longitude], {
 					clickable: !this.noClickable,
-					draggable: this.draggable,
+					// draggable: this.draggable,
 					keyboard: !this.noKeyboard,
-					title: this.title,
+					// title: this.title,
 					alt: this.alt,
 					zIndexOffset: this.zIndexOffset,
 					opacity: this.opacity,
