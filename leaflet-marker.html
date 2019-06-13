@@ -1,5 +1,6 @@
 <link rel="import" href="leaflet-core.html">
 <link rel="import" href="leaflet-popup.html">
+<!-- Versione MIAAAAAAAAAAAAAAAAAA -->
 
 <!--
 Element which defines an icon template for markers (<a href="http://leafletjs.com/reference.html#icon">Leaflet Reference</a>).
@@ -389,15 +390,16 @@ Element which defines a maker  (<a href="http://leafletjs.com/reference.html#mar
 @homepage https://leaflet-extras.github.io/leaflet-map/
 -->
 <dom-module id="leaflet-marker">
-	<style>
-		:host {display: none;}
-	</style>
 	<template>
+		<style>
+			:host {display: none;}
+		</style>
 	</template>
 	<script>
 	'use strict';
 
-	class LeafletMarker extends leafletMap.Mixins.LeafletPopupContent(Polymer.Element) {
+	// class LeafletMarker extends leafletMap.Mixins.LeafletPopupContent(Polymer.Element) {
+	class LeafletMarker extends Polymer.Element {
 		static get is() {return 'leaflet-marker';}
 
 		/**
@@ -579,10 +581,13 @@ Element which defines a maker  (<a href="http://leafletjs.com/reference.html#mar
 				 * @attribute draggable
 				 * @type bool
 				 */
-				// draggable: {
-				// 	type: Boolean,
-				// 	value: false
-				// },
+				makeDraggable: {
+					type: Boolean,
+					value: false,
+					reflectToAttribute: true,
+					notify: true,
+					observer: '_positionChanged'
+				},
 
 				/**
 				 * The `no-keyboard` attribute disables whether the marker can be tabbed to with a keyboard and clicked by pressing enter.
@@ -684,9 +689,10 @@ Element which defines a maker  (<a href="http://leafletjs.com/reference.html#mar
 
 				var feature = L.marker([this.latitude, this.longitude], {
 					clickable: !this.noClickable,
-					// draggable: this.draggable,
+					// Elimintato poiche' provoca errore
+					draggable: this.makeDraggable,
 					keyboard: !this.noKeyboard,
-					// title: this.title,
+					title: this.title,
 					alt: this.alt,
 					zIndexOffset: this.zIndexOffset,
 					opacity: this.opacity,
@@ -701,7 +707,10 @@ Element which defines a maker  (<a href="http://leafletjs.com/reference.html#mar
 					this.dispatchEvent(new CustomEvent(e.type, e));
 				}, this);
 
-				this.updatePopupContent();
+				// this.updatePopupContent();
+				if(this.title){
+					this.feature.bindPopup(this.title);
+				}
 				this.feature.addTo(this.container);
 			}
 		}
@@ -742,7 +751,7 @@ Element which defines a maker  (<a href="http://leafletjs.com/reference.html#mar
 
 		_positionChanged() {
 			if (this.feature) {
-				this.feature.setLatLng(L.latLng(this.latitude, this.longitude));
+				this.feature.setLatLng(L.latLng(this.latitude, this.longitude, {draggable:'true'}));
 			}
 		}
 
