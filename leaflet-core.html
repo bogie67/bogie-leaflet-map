@@ -42,6 +42,8 @@ add a marker with a popup text.
 -->
 <link rel="import" href="styles/leaflet-styles.html">
 <dom-module id="leaflet-map">
+	<link rel="stylesheet" href="../leaflet.fullscreen/Control.FullScreen.css" />
+	<link rel="import" type="css" href="../leaflet.fullscreen/Control.FullScreen.css" />
 	<template>
 
 		<style include="leaflet-styles">
@@ -676,7 +678,7 @@ add a marker with a popup text.
 				zoomControl: !this.noZoomControl,
 				attributionControl: !this.noAttributionControl,
 				zoomAnimationThreshold: this.zoomAnimationThreshold,
-				fullscreen:true
+				fullscreenControl:true
 			});
 			this.map = map;
 
