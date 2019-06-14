@@ -44,6 +44,8 @@ add a marker with a popup text.
 <dom-module id="leaflet-map">
 	<link rel="stylesheet" href="../leaflet.fullscreen/Control.FullScreen.css" />
 	<link rel="import" type="css" href="../leaflet.fullscreen/Control.FullScreen.css" />
+	<link rel="stylesheet" href="../leaflet.markercluster/dist/MarkerCluster.Default.css" />
+	<link rel="import" type="css" href="../leaflet.markercluster/dist/MarkerCluster.Default.css" />
 	<template>
 
 		<style include="leaflet-styles">
@@ -752,6 +754,10 @@ add a marker with a popup text.
 				for( var i = 0, f; f = this.children[i]; i++ ) {
 					if ( f.latitude && f.longitude ) {
 						bounds.push( [f.latitude, f.longitude] );
+					}else if(f.localName === 'leaflet-marker-cluster') {
+						for(var j = 0, marker; marker = f.children[j]; j++) {
+							bounds.push([marker.latitude, marker.longitude]);
+						}
 					}
 				}
 				if ( bounds.length > 0 ) {
