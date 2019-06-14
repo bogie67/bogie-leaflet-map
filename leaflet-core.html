@@ -735,9 +735,10 @@ add a marker with a popup text.
 
 		_viewChanged(newValue, oldValue) {
 			if (this.map && !this._ignoreViewChange) {
-				setTimeout(function() {
 					this.map.setView(L.latLng(this.latitude, this.longitude), this.zoom);
-				}.bind(this), 1);
+				// setTimeout(function() {
+				// 	this.map.setView(L.latLng(this.latitude, this.longitude), this.zoom);
+				// }.bind(this), 1);
 			}
 		}
 
