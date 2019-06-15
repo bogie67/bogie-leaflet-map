@@ -46,6 +46,8 @@ add a marker with a popup text.
 	<link rel="import" type="css" href="../leaflet.fullscreen/Control.FullScreen.css" />
 	<link rel="stylesheet" href="../leaflet.markercluster/dist/MarkerCluster.Default.css" />
 	<link rel="import" type="css" href="../leaflet.markercluster/dist/MarkerCluster.Default.css" />
+	<link rel="stylesheet" href="../leaflet.draw/leaflet.draw.css" />
+	<link rel="import" type="css" href="../leaflet.draw/leaflet.draw.css" />
 	<template>
 
 		<style include="leaflet-styles">
@@ -58,7 +60,8 @@ add a marker with a popup text.
 			}
 		</style>
 		<div id="map"></div>
-		<slot name="markers" id="markers"></slot>
+		<slot name="markers" id="markers">
+		</slot>
 	</template>
 	<script>
 		'use strict';
@@ -727,6 +730,18 @@ add a marker with a popup text.
 			this.registerMapOnChildren();
 			this._mutationObserver = new MutationObserver(this.registerMapOnChildren.bind(this));
 			this._mutationObserver.observe(this, { childList: true });
+
+
+			
+			map.on(L.Draw.Event.CREATED, function (e) {
+				var type = e.layerType,
+					layer = e.layer;
+			
+				if (type === 'marker') {
+					layer.bindPopup('A popup!');
+				}
+			
+			});
 		}
 
 		disconnectedCallback() {
