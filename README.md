@@ -1,4 +1,4 @@
-# Etools Leaflet Map Component
+# Bogie Leaflet Map Component
 
 This is a Polmyer 2 port of the original project found at leaflet-extras/leaflet-map.
 
@@ -16,69 +16,6 @@ to define the view and zoom level.
 Web-components are an emerging standard which is based on Custom Elements, Shadow DOM, HTML Imports and Web Animations.
 [Polymer](http://www.polymer-project.org/docs/start/tutorial/intro.html) is a library which simplifies working with web-components. It includes a compatibility layer for browsers which
 do not yet support web-components natively, yet.
-
-
-## Quickstart Guide
-
-Make leaflet maps using declarative [Polymer](http://polymer-project.org) web components.
-To get started read the [documentation](http://leaflet-extras.github.io/leaflet-map/doc.html)
-or checkout the [demo](http://leaflet-extras.github.io/leaflet-map/).
-
-Install this web component using [Bower](http://bower.io):
-
-```
-bower install unicef-polymer/etools-leaflet-map#latest
-```
-
-Import the main component and start creating your map:
-
-```html
-  <head>
-	<script type="text/javascript" src="../webcomponentsjs/webcomponents-lite.min.js"></script>
-    <link rel="import" href="leaflet-map.html">
-    <style>
-      html, body {
-        margin: 0;
-        height: 100%;
-      }
-      leaflet-map {
-        height: 100%;
-      }
-    </style>
-  </head>
-  <body>
-    <leaflet-map fit-to-markers>
-      <leaflet-marker longitude="77.2" latitude="28.4">
-        Marker I
-      </leaflet-marker>
-      <leaflet-circle longitude="77.2" latitude="28.4" radius="300">
-        Round
-      </leaflet-circle>
-    </leaflet-map>
-  </body>
-```
-
-
-## Status
-
-Although leaflet-map is still under heavy development, it is already fully usable.
-
-List of demos: 
-
-* [leaflet-map](https://leaflet-extras.github.io/leaflet-map/demo.html#view) (L.map)
-* [leaflet-marker](https://leaflet-extras.github.io/leaflet-map/demo.html#marker) (L.marker)
-* [leaflet-icon](https://leaflet-extras.github.io/leaflet-map/demo.html#icon) (L.icon)
-* [leaflet-divicon](https://leaflet-extras.github.io/leaflet-map/demo.html#icon) (L.divicon) (since 0.0.1)
-* [leaflet-circle](https://leaflet-extras.github.io/leaflet-map/demo.html#vector) (L.circle) (since 0.3.0)
-* [leaflet-polygon](https://leaflet-extras.github.io/leaflet-map/demo.html#vector) (L.polygon) (since 0.3.0)
-* [leaflet-polyline](https://leaflet-extras.github.io/leaflet-map/demo.html#vector) (L.polyline) (since 0.3.0)
-* [leaflet-tilelayer](https://leaflet-extras.github.io/leaflet-map/demo.html#tilelayer) (L.tileLayer)
-* [leaflet-tilelayer-wms](https://leaflet-extras.github.io/leaflet-map/demo.html#layerwms) (L.tileLayer.wms)  (since 0.0.2)
-* [leaflet-scale-control](https://leaflet-extras.github.io/leaflet-map/demo.html#scale) (L.control.scale) (since 0.2.0)
-* [leaflet-geojson](https://leaflet-extras.github.io/leaflet-map/demo.html#geojson) (since 0.4.0)
-* [leaflet-geolocation](https://leaflet-extras.github.io/leaflet-map/demo.html#databinding) (part of L.map) (since 0.0.2)
-
-Please have a look at the [change log](https://github.com/nhnb/leaflet-map/blob/master/CHANGES.md), for recent developments.
 
 ## Dependencies
 
