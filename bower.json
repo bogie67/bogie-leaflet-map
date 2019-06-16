@@ -2,7 +2,8 @@
   "name": "leaflet-map",
   "version": "0.2.1",
   "authors": [
-    "Luca Bognetti <luca.bognetti@gmail.com>"
+    "Luca Bognetti <luca.bognetti@gmail.com>",
+    "Alessandro Cautela <alessandro.cautela@gmail.com>"
   ],
   "description": "Leaflet map as web-component based on polymer 2",
   "main": "leaflet-map.html",
